@@ -7,6 +7,8 @@ from system.Scanner import Cleanup
 
 if __name__ == '__main__':
     start_dir = input("Enter a path to cleanup:")
-    scanner = Cleanup(start_dir, [".svn"], [".lnk", ".url"])  # also delete .svn directories and shortcut files
+    scanner = Cleanup(start_dir,
+                      clean_dirs=[".svn"],  # also delete .svn directories
+                      clean_files=[".lnk", ".url"])  # and shortcut file extension
     scanner.expand()
     print(f"Stats: {scanner.cleanup} items removed")
